@@ -1,0 +1,293 @@
+@import "./node_modules/bootstrap/scss/bootstrap.scss";
+
+@mixin blog-img($url) {
+  background-image: url($url);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  min-height: 20rem;
+  display: block;
+}
+
+@mixin social-icon($icon) {
+  position: relative;
+  background-color: #2e3b4c;
+  border-radius: 50%;
+
+  &::after {
+    position: absolute;
+    font-family: "Font Awesome 5 Free", "Font Awesome 5 Brands";
+    content: $icon;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  &:hover {
+    /*transition: opacity 0.3s ease-out;*/
+  }
+}
+
+main {
+  overflow-x: hidden;
+}
+
+header {
+  color: white;
+  background-image: linear-gradient(135deg,#2ebdc4 0%,#68e5b2 100%);
+
+  h1 {
+    font-weight: 700;
+  }
+}
+
+.hero-section {
+  padding-top:    6.5rem;
+  padding-bottom: 6.5rem;
+}
+
+.font-weight-boldish {
+  font-weight: 600;
+}
+
+#services {
+  .svg-container {
+    width: 4rem;
+    padding-bottom: 1rem;
+  }
+
+  .service-row div[class^="col-"] {
+    padding-top:    1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+#testimonials {
+  background-color: #f8faff;
+  font-weight: 600;
+
+  h6 {
+    color: #99b6ff;
+    letter-spacing: 1px;
+    font-weight: 600;
+    padding-bottom: 0;
+  }
+}
+
+#numbers {
+  background-image: linear-gradient(135deg,#2ebdc4 0%,#68e5b2 100%);
+
+  p {
+    font-weight: 300;
+  }
+}
+
+#pricing {
+  background-color: #f8faff;
+  padding-top:    4rem;
+  padding-bottom: 4rem;
+
+  .card-body {
+    padding-top: 0;
+    text-align: center;
+  }
+
+  .heading {
+    color: white;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .money {
+    font-size: 2.5rem;
+    display: block;
+  }
+
+  h4 {
+    background-color: #24bdc9;
+    display: inline-block;
+    border-radius: 0 0 10px 10px;
+  }
+}
+
+#quote {
+  background-image: linear-gradient(135deg,#2ebdc4 0%,#68e5b2 100%);
+  .reasons {
+    color: white;
+    /*background-color: #2ebdc4;*/
+  
+    /*
+    &::after {
+      content: "";
+      background-color: #2ebdc4;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 100%;
+      width: 1000%;
+    }*/
+  }
+
+  .quote {
+    background-color: white;
+    
+    &::after {
+      content: "";
+      background-color: white;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 100%;
+      width: 1000%;
+    }
+  }
+
+  .form-control {
+    border-radius: 0;
+    border-top:   0px;
+    border-left:  0px;
+    border-right: 0px;
+  
+    &:focus {
+      box-shadow: none;
+    }
+  
+    &:invalid {
+      box-shadow: none;
+      /*border-bottom: 1px solid red;*/
+    }
+  }
+
+  .sub-button {
+    position: relative;
+    top: 1.5rem;
+  }
+
+  textarea {
+    resize: none;
+  }
+}
+
+#blog {
+  background-color: #f8faff;
+  /*background-color: #fafafa;*/
+
+  .blog-img-1{
+    @include blog-img('../img/business.jpeg');
+  }
+
+  .blog-img-2{
+    @include blog-img('../img/work.jpeg');
+  }
+
+  .blog-img-3{
+    @include blog-img('../img/laptop.jpeg');
+  }
+
+  p.blog-text {
+    a {
+      color: #9299a0;
+      text-decoration: none;
+    }
+  }
+  
+  i {
+    font-size: 12px;
+  }
+}
+
+footer {
+  color: #c1c5ca;
+  background-color: #233142;
+
+  h5 {
+    color: white;
+    padding-bottom: 2.5rem;
+  }
+
+  p {
+    font-weight: 300;
+    line-height: 1.75;
+    font-size: 1.0625rem;
+  }
+  
+  ul {
+    list-style: none;
+    padding-left: 0;
+
+    a {
+      color: #c1c5ca;
+
+      &:hover {
+        color: white;
+        text-decoration: none;
+      }
+    }
+
+    &.social-bar {
+      li {
+        display: inline;
+      }
+      
+      a {
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.5rem;
+        display: inline-block;
+
+        &.facebook {
+          @include social-icon("\f39e");
+        }
+        &.twitter {
+          @include social-icon("\f099");
+        }
+        &.instagram {
+          @include social-icon("\f16d");
+        }
+      }
+    }
+
+    &.links {
+      li {
+        padding-bottom: 0.5rem;
+
+        &:before {
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  .contact {
+    a, i {
+      color: white;
+      text-decoration: none;
+    }
+    .row {
+      margin-bottom: 0.75rem;
+    }
+  }
+}
+
+@media (max-width: map-get($map: $grid-breakpoints, $key: 'sm')) {
+  .hero-section {
+    text-align: center;
+    padding-top:    3rem;
+    padding-bottom: 4rem;
+  }
+
+  #quote {
+    .form-control {
+      margin-bottom: 1rem;
+    }
+  }
+
+  #pricing {
+    div.col-lg-3 {
+      &:not(:nth-last-child(1)) {
+        padding-bottom: 2rem;
+      }
+    }
+  }
+}
