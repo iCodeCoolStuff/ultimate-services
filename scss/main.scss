@@ -441,40 +441,13 @@ footer {
 @media (max-width: map-get($map: $grid-breakpoints, $key: 'lg')) {
   /* navbar stuff */
 
-  .slide-in {
-    margin-left: 0px;
-    /*transform: translate3d(0px, 0, 0);*/
-
-    .cta-button {
-      display: inline-block;
-    }
+  .nav-wrapper {
+    height: auto;
   }
 
-  .slide-out {
-    margin-left: -200px;
-    /*transform: translate3d(-200px, 0, 0);*/
+  .cta-button {
+    display: inline-block;
   }
-
-  .navbar-collapse {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 200px;
-    min-height: 100vh;
-    transition: margin-left .3s ease;
-  }
-  .collapse {
-    background-color: white;
-  }
-
-  .collapsing {
-    min-height: 100vh;
-    margin-left: -200px;
-    background-color: white;
-    /*transform: translate3d(-200px, 0, 0);*/
-  }
-
-  /* end */
 
   .hero-section {
     text-align: center;

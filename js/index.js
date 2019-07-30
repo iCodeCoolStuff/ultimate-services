@@ -1,10 +1,13 @@
 const navbar = $('#navbar');
+const nav_wrapper = $('.nav-wrapper');
 const header = $('header');
 
 function navbarChecker() {
   if (window.pageYOffset > header.height() * 0.5) {
+    nav_wrapper.css("height", "4rem");
     navbar.addClass('scrolled');
   } else {
+    nav_wrapper.css("height", "auto");
     navbar.removeClass('scrolled');
   }
 
@@ -23,17 +26,3 @@ function navbarChecker() {
 navbarChecker();
 
 window.onscroll = navbarChecker;
-
-var def = 0;
-
-$('.navbar-toggler').click(function(e) {
-  if (def) {
-    $('.navbar-collapse').removeClass('slide-in');
-    $('.navbar-collapse').addClass('slide-out');
-    def = 0;
-  } else {
-    $('.navbar-collapse').removeClass('slide-out');
-    $('.navbar-collapse').addClass('slide-in');
-    def = 1;
-  }
-});

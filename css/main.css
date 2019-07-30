@@ -7413,29 +7413,10 @@ footer {
 
 @media (max-width: 992px) {
   /* navbar stuff */
-  .slide-in {
-    margin-left: 0px;
-    /*transform: translate3d(0px, 0, 0);*/ }
-    .slide-in .cta-button {
-      display: inline-block; }
-  .slide-out {
-    margin-left: -200px;
-    /*transform: translate3d(-200px, 0, 0);*/ }
-  .navbar-collapse {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 200px;
-    min-height: 100vh;
-    transition: margin-left .3s ease; }
-  .collapse {
-    background-color: white; }
-  .collapsing {
-    min-height: 100vh;
-    margin-left: -200px;
-    background-color: white;
-    /*transform: translate3d(-200px, 0, 0);*/ }
-  /* end */
+  .nav-wrapper {
+    height: auto; }
+  .cta-button {
+    display: inline-block; }
   .hero-section {
     text-align: center; }
   .sub-button {
