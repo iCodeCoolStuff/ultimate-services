@@ -1,18 +1,21 @@
 @import "./node_modules/bootstrap/scss/bootstrap.scss";
 
+$footer-p-color: rgba(255, 255, 255, 0.6);/*#a0ebeb;*/
+
 @mixin blog-img($url) {
   background-image: url($url);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
-  min-height: 20rem;
+  min-height: 18rem;
   display: block;
 }
 
 @mixin social-icon($icon) {
   position: relative;
-  background-color: #2e3b4c;
+  /*background-color: #2e3b4c;*/
+  background-color: #2fc0cc;
   border-radius: 50%;
 
   &::after {
@@ -25,7 +28,8 @@
   }
 
   &:hover {
-    /*transition: opacity 0.3s ease-out;*/
+    color: #2ebdc4;
+    background-color: white;
   }
 }
 
@@ -40,6 +44,74 @@ header {
   h1 {
     font-weight: 700;
   }
+
+  nav {
+    position: absolute;
+    top: 20px;
+    z-index: 10;
+
+    .cta-button {
+      @extend .btn-outline-primary;
+    }
+
+    .fa-bars {
+      color: white;
+      font-size: 2rem;
+    }
+
+    .navbar-toggler {
+      border: none;
+      outline: none;
+    }
+
+    &.scrolled {
+      position: fixed;
+      right: 0;
+      left: 0;
+      top: 0;
+      margin-top: -130px;
+      
+      @extend .navbar-light;
+      background-color: white !important;
+      box-shadow: 0 0 10px 0 rgba(0,0,0,.1);;
+
+      .active {
+        color: #2ebdc4 !important;
+      }
+
+      .fa-bars {
+        color: rgba(0, 0, 0, 0.5);
+      }
+
+      .cta-button {
+        @extend .btn-secondary;
+      }
+
+      .non {
+        display: inline-block;
+      }
+    }
+
+    &.shown {
+      margin-top: 0px;
+      /*z-index: 10;*/
+    }
+
+    &.transition {
+      transition: margin-top .3s ease;
+    }
+  }
+
+  .navbar-nav {
+    .nav-item {
+      line-height: 1.8;
+    }
+
+    .nav-link {
+      padding-left: 1.25rem !important;
+      padding-right: 1.25rem !important;
+    }
+  }
 }
 
 .hero-section {
@@ -47,8 +119,33 @@ header {
   padding-bottom: 6.5rem;
 }
 
+.nav-wrapper {
+  height: 4rem;
+}
+
 .font-weight-boldish {
   font-weight: 600;
+}
+
+.btn-primary {
+  @include button-variant(white, white);
+  color: #2ebdc4;
+
+  &:hover {
+    color: #2ebdc4;
+  }
+}
+
+.btn-outline-primary {
+  @include button-outline-variant(white, #24bdc9);
+}
+
+.btn-secondary {
+  @include button-variant(#24bdc9, #24bdc9);
+}
+
+.btn-outline-secondary {
+  @include button-outline-variant(#2ebdc4);
 }
 
 #services {
@@ -173,6 +270,10 @@ header {
   background-color: #f8faff;
   /*background-color: #fafafa;*/
 
+  .card-body {
+    padding-top: 0.5rem;
+  }
+
   .blog-img-1{
     @include blog-img('../img/business.jpeg');
   }
@@ -198,8 +299,10 @@ header {
 }
 
 footer {
-  color: #c1c5ca;
-  background-color: #233142;
+  /*color: #c1c5ca;*/
+  /*background-color: #233142;*/
+  color: $footer-p-color;
+  background-color: #24bdc9;
 
   h5 {
     color: white;
@@ -211,19 +314,20 @@ footer {
     line-height: 1.75;
     font-size: 1.0625rem;
   }
+
+  a {
+    /*color: #c1c5ca;*/
+    color: white;
+
+    &:hover {
+      color: white;
+      text-decoration: none;
+    }
+  }
   
   ul {
     list-style: none;
     padding-left: 0;
-
-    a {
-      color: #c1c5ca;
-
-      &:hover {
-        color: white;
-        text-decoration: none;
-      }
-    }
 
     &.social-bar {
       li {
@@ -235,6 +339,7 @@ footer {
         height: 3rem;
         font-size: 1.5rem;
         display: inline-block;
+        transition: .3s all ease;
 
         &.facebook {
           @include social-icon("\f39e");
@@ -256,6 +361,17 @@ footer {
           display: inline-block;
         }
       }
+      
+      a {
+        /*color: #c1c5ca;*/
+        color: $footer-p-color;
+        transition: .3s all ease;
+  
+        &:hover {
+          color: white;
+          text-decoration: none;
+        }
+      }
     }
   }
 
@@ -268,11 +384,35 @@ footer {
       margin-bottom: 0.75rem;
     }
   }
+
+  .newsletter {
+    .form {
+      border-radius: 50rem 0 0 50rem;
+      border: none;
+      color: #24bdc9;
+
+      &::placeholder {
+        color: #24bdc9;
+      }
+
+      &:focus, &:active {
+        box-shadow: none;
+      }
+    }
+
+    .button {
+      border-radius: 0 50rem 50rem 0;
+      border-left: 1px solid #24bdc9;
+
+      &:focus, &:active {
+        box-shadow: none;
+      }
+    }
+  }
 }
 
 @media (max-width: map-get($map: $grid-breakpoints, $key: 'sm')) {
   .hero-section {
-    text-align: center;
     padding-top:    3rem;
     padding-bottom: 4rem;
   }
@@ -282,9 +422,98 @@ footer {
       margin-bottom: 1rem;
     }
   }
+  
+  #pricing {
+    div.col-lg-3 {
+      &:not(:nth-last-child(1)) {
+        padding-bottom: 2rem;
+      }
+    }
+  }
+}
+
+@media (max-width: map-get($map: $grid-breakpoints, $key: 'md')) {
+  .non {
+    display: none;
+  }
+}
+
+@media (max-width: map-get($map: $grid-breakpoints, $key: 'lg')) {
+  /* navbar stuff */
+
+  .slide-in {
+    margin-left: 0px;
+    /*transform: translate3d(0px, 0, 0);*/
+
+    .cta-button {
+      display: inline-block;
+    }
+  }
+
+  .slide-out {
+    margin-left: -200px;
+    /*transform: translate3d(-200px, 0, 0);*/
+  }
+
+  .navbar-collapse {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    min-height: 100vh;
+    transition: margin-left .3s ease;
+  }
+  .collapse {
+    background-color: white;
+  }
+
+  .collapsing {
+    min-height: 100vh;
+    margin-left: -200px;
+    background-color: white;
+    /*transform: translate3d(-200px, 0, 0);*/
+  }
+
+  /* end */
+
+  .hero-section {
+    text-align: center;
+  }
+
+  .sub-button {
+    width: 100%;
+  }
+
+  .quote {
+    .form-control {
+      margin-bottom: 2rem;
+    }
+
+    &::before {
+      content: "";
+      background-color: white;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 100%;
+      width: 1000%;
+    }
+  }
 
   #pricing {
     div.col-lg-3 {
+      &:nth-child(1), :nth-child(2) {
+        padding-bottom: 2rem;
+      }
+    }
+
+    .btn {
+      width: 100%;
+    }
+  }
+  
+  #blog {
+    div.col-lg-4 {
       &:not(:nth-last-child(1)) {
         padding-bottom: 2rem;
       }
