@@ -119,6 +119,12 @@ header {
   padding-bottom: 6.5rem;
 }
 
+.form-control {
+  &:invalid {
+    box-shadow: none;
+  }
+}
+
 .nav-wrapper {
   height: 3.75rem;
 }
@@ -237,11 +243,6 @@ header {
     &:focus {
       box-shadow: none;
       border-bottom: 1px solid #24bdc9;
-    }
-  
-    &:invalid {
-      box-shadow: none;
-      /*border-bottom: 1px solid red;*/
     }
   }
 
