@@ -7221,18 +7221,7 @@ header {
 #quote {
   background-image: linear-gradient(135deg, #2ebdc4 0%, #68e5b2 100%); }
   #quote .reasons {
-    color: white;
-    /*background-color: #2ebdc4;*/
-    /*
-    &::after {
-      content: "";
-      background-color: #2ebdc4;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      right: 100%;
-      width: 1000%;
-    }*/ }
+    color: white; }
   #quote .quote {
     background-color: white; }
     #quote .quote::after {
@@ -7291,6 +7280,9 @@ header {
     display: block; }
   #blog p.blog-text a {
     color: #9299a0;
+    text-decoration: none; }
+  #blog h5.card-title a, #blog h5.card-title a:hover {
+    color: inherit;
     text-decoration: none; }
   #blog i {
     font-size: 12px; }
