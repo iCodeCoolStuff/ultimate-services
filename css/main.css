@@ -7077,7 +7077,7 @@ header {
   padding-bottom: 6.5rem; }
 
 .nav-wrapper {
-  height: 4rem; }
+  height: 3.75rem; }
 
 .font-weight-boldish {
   font-weight: 600; }
@@ -7249,7 +7249,8 @@ header {
     border-left: 0px;
     border-right: 0px; }
     #quote .form-control:focus {
-      box-shadow: none; }
+      box-shadow: none;
+      border-bottom: 1px solid #24bdc9; }
     #quote .form-control:invalid {
       box-shadow: none;
       /*border-bottom: 1px solid red;*/ }

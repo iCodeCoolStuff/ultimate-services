@@ -4,7 +4,7 @@ const header = $('header');
 
 function navbarChecker() {
   if (window.pageYOffset > header.height() * 0.5) {
-    nav_wrapper.css("height", "4rem");
+    nav_wrapper.css("height", "3.75rem");
     navbar.addClass('scrolled');
   } else {
     nav_wrapper.css("height", "auto");
@@ -26,3 +26,7 @@ function navbarChecker() {
 navbarChecker();
 
 window.onscroll = navbarChecker;
+
+$('#carousel').carousel({
+  interval: 3500
+});

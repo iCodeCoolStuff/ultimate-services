@@ -120,7 +120,7 @@ header {
 }
 
 .nav-wrapper {
-  height: 4rem;
+  height: 3.75rem;
 }
 
 .font-weight-boldish {
@@ -248,6 +248,7 @@ header {
   
     &:focus {
       box-shadow: none;
+      border-bottom: 1px solid #24bdc9;
     }
   
     &:invalid {
