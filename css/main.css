@@ -7424,7 +7424,7 @@ footer {
     bottom: 0;
     right: 100%;
     width: 1000%; }
-  #pricing div.col-lg-3:nth-child(1), #pricing div.col-lg-3 :nth-child(2) {
+  #pricing .row > :nth-child(1), #pricing .row > :nth-child(2) {
     padding-bottom: 2rem; }
   #pricing .btn {
     width: 100%; }
