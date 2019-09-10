@@ -2,16 +2,6 @@
 
 $footer-p-color: rgba(255, 255, 255, 0.6);/*#a0ebeb;*/
 
-@mixin blog-img($url) {
-  background-image: url($url);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-  min-height: 18rem;
-  display: block;
-}
-
 @mixin social-icon($icon) {
   position: relative;
   /*background-color: #2e3b4c;*/
@@ -131,6 +121,11 @@ header {
 
 .font-weight-boldish {
   font-weight: 600;
+}
+
+.cover {
+  object-fit: cover;
+  height: 18rem;
 }
 
 .btn-primary {
@@ -264,16 +259,8 @@ header {
     padding-top: 0.5rem;
   }
 
-  .blog-img-1{
-    @include blog-img('../img/business.jpeg');
-  }
-
-  .blog-img-2{
-    @include blog-img('../img/work.jpeg');
-  }
-
-  .blog-img-3{
-    @include blog-img('../img/laptop.jpeg');
+  .card-img-top {
+    border-radius: 0;
   }
 
   p.blog-text {

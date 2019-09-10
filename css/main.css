@@ -7085,6 +7085,10 @@ header {
 .font-weight-boldish {
   font-weight: 600; }
 
+.cover {
+  object-fit: cover;
+  height: 18rem; }
+
 .btn-primary {
   color: #212529;
   background-color: white;
@@ -7254,30 +7258,8 @@ header {
   /*background-color: #fafafa;*/ }
   #blog .card-body {
     padding-top: 0.5rem; }
-  #blog .blog-img-1 {
-    background-image: url("../img/business.jpeg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    min-height: 18rem;
-    display: block; }
-  #blog .blog-img-2 {
-    background-image: url("../img/work.jpeg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    min-height: 18rem;
-    display: block; }
-  #blog .blog-img-3 {
-    background-image: url("../img/laptop.jpeg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    min-height: 18rem;
-    display: block; }
+  #blog .card-img-top {
+    border-radius: 0; }
   #blog p.blog-text a {
     color: #9299a0;
     text-decoration: none; }
